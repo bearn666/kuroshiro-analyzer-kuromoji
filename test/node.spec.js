@@ -48,33 +48,22 @@ describe("kuroshiro-analyzer-kuromoji Node Test", () => {
         analyzer = new Analyzer();
         await analyzer.init();
 
-        const ori = EXAMPLE_TEXT;
-        analyzer.parse(ori)
-            .then((result) => {
-                // console.debug(result);
-                expect(result).toBeInstanceOf(Array);
-                expect(result).toHaveLength(4);
-                done();
-            })
-            .catch((err) => {
-                done(err);
-            });
+        const result = analyzer.parse(EXAMPLE_TEXT);
+        // console.debug(result);
+        expect(result).toBeInstanceOf(Array);
+        expect(result).toHaveLength(4);
+        done();
     });
 
     it("Parse Null", async (done) => {
         analyzer = new Analyzer();
         await analyzer.init();
 
-        analyzer.parse()
-            .then((result) => {
-                // console.debug(result);
-                expect(result).toBeInstanceOf(Array);
-                expect(result).toHaveLength(0);
-                done();
-            })
-            .catch((err) => {
-                done(err);
-            });
+        const result = analyzer.parse();
+        // console.debug(result);
+        expect(result).toBeInstanceOf(Array);
+        expect(result).toHaveLength(0);
+        done();
     });
 
     it("Parse Blank Sentence", async (done) => {
@@ -82,15 +71,10 @@ describe("kuroshiro-analyzer-kuromoji Node Test", () => {
         await analyzer.init();
 
         const ori = "";
-        analyzer.parse(ori)
-            .then((result) => {
-                // console.debug(result);
-                expect(result).toBeInstanceOf(Array);
-                expect(result).toHaveLength(0);
-                done();
-            })
-            .catch((err) => {
-                done(err);
-            });
+        const result = analyzer.parse(ori);
+        // console.debug(result);
+        expect(result).toBeInstanceOf(Array);
+        expect(result).toHaveLength(0);
+        done();
     });
 });
