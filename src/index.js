@@ -53,7 +53,7 @@ class Analyzer {
     /**
      * Parse the given string
      * @param {string} str input string
-     * @returns {Promise} Promise object represents the result of parsing
+     * @returns Object represents the result of parsing
      * @example The result of parsing
      * [{
      *     "surface_form": "黒白",    // 表層形
